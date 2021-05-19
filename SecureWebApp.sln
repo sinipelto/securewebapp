@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureWebApp", "SecureWebApp.csproj", "{DFB3E4F4-A56A-43BA-A06E-ED1120CEFF3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureWebApp", "SecureWebApp\SecureWebApp.csproj", "{DFB3E4F4-A56A-43BA-A06E-ED1120CEFF3B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureWebApp.Tests", "..\SecureWebApp.Tests\SecureWebApp.Tests.csproj", "{C7DE6BFA-4936-4F62-B4B8-9246808C78DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureWebApp.Tests", "SecureWebApp.Tests\SecureWebApp.Tests.csproj", "{C7DE6BFA-4936-4F62-B4B8-9246808C78DA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DFB3E4F4-A56A-43BA-A06E-ED1120CEFF3B} = {DFB3E4F4-A56A-43BA-A06E-ED1120CEFF3B}
 	EndProjectSection
