@@ -15,27 +15,16 @@ namespace SecureWebApp.Tests
         [SetUp]
         public void Setup()
         {
-            _accessorMock = new Mock<HttpContextAccessor>(MockBehavior.Default);
-            _service = new IpAddressService(_accessorMock.Object);
+            //_accessorMock = new Mock<HttpContextAccessor>(MockBehavior.Default);
+            //_service = new IpAddressService(_accessorMock.Object);
         }
 
         [Test]
         public void Test_GetIp_XForwardTrue()
         {
-            string expectedIp = "1.2.3.4";
+            //string expectedIp = "1.2.3.4";
 
-            _accessorMock.Setup(i => i.HttpContext.Request.Headers).Returns(() =>
-            {
-                var dict = new HeaderDictionary
-                {
-                    new("", new StringValues()),
-                    new()
-                };
-
-                return dict;
-            });
-
-            var ip = _service.GetRequestIp(true);
+            //var ip = _service.GetRequestIp(true);
 
             //Assert.AreEqual();
          
