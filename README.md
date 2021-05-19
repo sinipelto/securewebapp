@@ -3,6 +3,7 @@
 # Introduction
 
 SecureWebApp - Secure Web Application Template for ASP.NET Core 5.0
+
 A programming project for course COMP.SEC.300 Secure Programming, Spring 2021
 
 
