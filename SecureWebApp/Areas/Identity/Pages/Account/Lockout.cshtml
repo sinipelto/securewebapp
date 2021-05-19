@@ -1,0 +1,28 @@
+﻿@page
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hostingEnv
+@using Microsoft.Extensions.Hosting
+@model LockoutModel
+@{
+    ViewData["Title"] = "Account Locked Out";
+}
+
+<header>
+    <h1 class="text-danger">@ViewData["Title"]</h1>
+
+    <p class="text-danger">Due to too many invalid login attempts, this account has been locked out for 24 hours, please try again later.</p>
+    <p>Account unlock message sent to the associated email address.</p>
+    <p>You can unlock your account immediately using the reset link in the email message.</p>
+
+    @if (_hostingEnv.IsDevelopment() && Model.EmailMessage != null)
+    {
+        <br />
+        <br />
+        <p>DEVELOPMENT MODE</p>
+        <br />
+        <p>The generated email:</p>
+        <p>To: @Model.EmailMessage.To</p>
+        <p>Subject: @Model.EmailMessage.Subject</p>
+        <p>Content: @Html.Raw(@Model.EmailMessage.HtmlMessage)</p>
+    }
+
+</header>

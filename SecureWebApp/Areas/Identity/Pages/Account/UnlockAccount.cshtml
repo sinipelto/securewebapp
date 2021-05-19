@@ -1,0 +1,15 @@
+﻿@page
+@model UnlockAccountModel
+@{
+    ViewData["Title"] = "Unlock Account";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+@if (Model.ModelState.IsValid)
+{
+    <p>Account unlocked successfully.</p>
+    <a href="@Url.Page("./Login")">Go to the login page</a>
+}
