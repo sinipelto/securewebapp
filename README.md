@@ -43,3 +43,11 @@ On pushes or Pull Requests to main branch, a build-test job is triggered to buil
 After a successful test run, the deployment job is run to publish the in a private server.
 
 The application is available for testing in https://securewebapp.peltonet.com/
+
+# Static Analysis
+
+The project source code is analyzed using SonarQube Cloud (SonarCloud) service.
+
+SonarCloud is integrated through GitHub Actions.
+
+The URL for the project analysis: https://sonarcloud.io/dashboard?id=Sinipelto_securewebapp
