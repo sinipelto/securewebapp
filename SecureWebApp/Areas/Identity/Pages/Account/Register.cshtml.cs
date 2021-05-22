@@ -26,7 +26,6 @@ namespace SecureWebApp.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly IBreachCheckService _pwnedCheckService;
-        private readonly IBreachCheckService _pwdsApiCheckService;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -43,7 +42,6 @@ namespace SecureWebApp.Areas.Identity.Pages.Account
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _emailSender = emailSender ?? throw new ArgumentNullException(nameof(emailSender));
             _pwnedCheckService = brechServiceResolver(PwnedApiCheckService.Name);
-            _pwdsApiCheckService = brechServiceResolver(PasswdsApiCheckService.Name);
         }
 
         [BindProperty]
@@ -93,17 +91,17 @@ namespace SecureWebApp.Areas.Identity.Pages.Account
             try
             {
                 breached = await _pwnedCheckService.CheckPasswordAsync(Input.Password);
-                //breached = await _pwdsApiCheckService.CheckPasswordAsync(Input.Password);
             }
             catch (Exception e)
             {
-                _logger.LogError(e, "Failed to check for password breaches.");
-                throw;
+                _logger.LogError(e, $"ERROR: Failed to check password breach for account {User.Identity?.Name}. User informed.");
+                ModelState.AddModelError("PasswordBreachCheckFail", "Failed to check the password for breaches. Please try to register again later soon.");
+                return Page();
             }
 
             if (breached)
             {
-                ModelState.AddModelError("PasswordBreach", "Password hash is detected in a breached passwords list. Please use another password.");
+                ModelState.AddModelError("PasswordBreachFound", "Password hash is detected in a breached passwords list. Please use another password.");
                 return Page();
             }
 

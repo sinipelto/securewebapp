@@ -90,21 +90,21 @@ namespace SecureWebApp.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            bool breached = false;
-
+            bool breached;
             try
             {
                 breached = await _pwnedApiBreachCheckService.CheckPasswordAsync(Input.NewPassword);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                _logger.LogError(e, $"ERROR: Failed to check password breach for account {User.Identity?.Name}. User informed.");
+                ModelState.AddModelError("PasswordBreachCheckFail", "Failed to check the password for breaches. Please try to change your password again later.");
+                return Page();
             }
 
             if (breached)
             {
-                ModelState.AddModelError("PasswordBreachError", "Error: The given password has been breached and is not safe for use. Please choose another password.");
+                ModelState.AddModelError("PasswordBreachFound", "Error: The given password has been breached and is not safe for use. Please choose another password.");
                 return Page();
             }
 
