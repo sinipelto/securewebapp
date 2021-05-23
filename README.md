@@ -1,5 +1,11 @@
 # SecureWebApp
 
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sinipelto_securewebapp&metric=security_rating)](https://sonarcloud.io/dashboard?id=Sinipelto_securewebapp)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sinipelto_securewebapp&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Sinipelto_securewebapp)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sinipelto_securewebapp&metric=alert_status)](https://sonarcloud.io/dashboard?id=Sinipelto_securewebapp)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sinipelto_securewebapp&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Sinipelto_securewebapp)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Sinipelto_securewebapp&metric=ncloc)](https://sonarcloud.io/dashboard?id=Sinipelto_securewebapp)
+
 # Introduction
 
 SecureWebApp - Secure Web Application Template for ASP.NET Core 5.0
