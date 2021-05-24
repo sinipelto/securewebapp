@@ -22,9 +22,9 @@ Direct link to the project documentation [HERE](./Documentation.pdf).
 
 # Architecture
 
-The rough architecture diagram below:
+The rough architecture diagram of the application below:
 
-![Image not available!](./Architrecture.png "Application architecture diagram")
+![Image not available!](./Architecture.png "Application architecture diagram")
 
 Link to the full picture [here](./Architecture.png).
 
