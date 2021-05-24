@@ -996,3 +996,8 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 
 # End of https://www.toptal.com/developers/gitignore/api/c,vs,git,c++,cmake,vscode,visualstudio,visualstudiocode,vagrant,python,pycharm,pycharm+iml,pycharm+all
+
+# Ignore keyring
+keyring/
+# Ignore master keys
+key-*.xml
