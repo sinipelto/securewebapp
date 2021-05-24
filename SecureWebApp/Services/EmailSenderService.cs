@@ -11,11 +11,11 @@ namespace SecureWebApp.Services
     public class EmailSenderService : IMailService
     {
         private readonly IConfiguration _configuration;
-        private readonly ILogger<EmailSenderService> _logger;
+        private readonly ILogger<IMailService> _logger;
         private readonly IIpAddressService _ipAddressService;
 
         public EmailSenderService(
-            ILogger<EmailSenderService> logger,
+            ILogger<IMailService> logger,
             IIpAddressService ipAddressService,
             IConfiguration configuration)
         {
@@ -38,7 +38,7 @@ namespace SecureWebApp.Services
             {
                 To = user.Email,
                 Subject = "SecureWebApp: User account locked",
-                HtmlMessage = GetTemplate(Templates.AccountUnlock, user.Email, _ipAddressService.GetRequestIp(), user.Id, recoveryToken)
+                HtmlMessage = await GetEmailTemplateAsync(Templates.AccountUnlock, user.UserName, _ipAddressService.GetRequestIp(), user.Id, recoveryToken)
             };
 
             // Send the mail asyncronously in the background
@@ -60,7 +60,7 @@ namespace SecureWebApp.Services
         /// <param name="template">Template to be used</param>
         /// <param name="input">All required data parameters for the template. See the lists above.</param>
         /// <returns></returns>
-        private string GetTemplate(Templates template, params string[] input)
+        public Task<string> GetEmailTemplateAsync(Templates template, params string[] input)
         {
             switch (template)
             {
@@ -71,10 +71,10 @@ namespace SecureWebApp.Services
                 case Templates.AccountUnlock:
                     var url = new Uri(Uri.UriSchemeHttps + Uri.SchemeDelimiter + _configuration["ServerName"] +
                                       "/Identity/Account/UnlockAccount" + "?userId=" + input[2] + "&code=" + input[3]);
-                    return
+                    return Task.FromResult(
                         $"Hello, {input[0]}! Due to security reasons your account has been locked after too many failed login attempts.\n\nThis lockdown was originated from IP address {input[1]}.\n\n" +
                         "The account will automatically unlock after 24 hours from lockdown.\n\n" +
-                        "<a href='" + url + "'>Unlock your account now by clicking here</a>";
+                        "<a href='" + url + "'>Unlock your account now by clicking here</a>");
                 default:
                     throw new ArgumentOutOfRangeException(nameof(template), template, null);
             }

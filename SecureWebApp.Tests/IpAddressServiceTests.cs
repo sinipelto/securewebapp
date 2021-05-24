@@ -57,7 +57,7 @@ namespace SecureWebApp.Tests
         }
 
         [Test]
-        public async Task Test_GetIp_NotAvailable()
+        public void Test_GetIp_NotAvailable()
         {
             Assert.Throws<Exception>(() =>
             {
