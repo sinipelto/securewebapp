@@ -12,11 +12,21 @@ SecureWebApp - Secure Web Application Template for ASP.NET Core 5.0
 
 A programming project for course COMP.SEC.300 Secure Programming, Spring 2021
 
+The repository contains all the source code, architecture diagram and documentation for the project.
 
 # Documentation
 
 Project Documentation available in Documentation.pdf in project root.
 
+Direct link to the project documentation [HERE](./Documentation.pdf).
+
+# Architecture
+
+The rough architecture diagram below:
+
+![Image not available!](./Architrecture.png "Application architecture diagram")
+
+Link to the full picture [here](./Architecture.png).
 
 # Local development environment setup
 
@@ -48,7 +58,7 @@ Project Documentation available in Documentation.pdf in project root.
 On pushes or Pull Requests to main branch, a build-test job is triggered to build the project in cloud runner and run all the unit tests and ensure they pass.
 After a successful test run, the deployment job is run to publish the in a private server.
 
-The application is available for testing in https://securewebapp.peltonet.com/
+The application is available for live testing in https://securewebapp.peltonet.com/
 
 # Static Analysis
 
